@@ -7,12 +7,14 @@ import { FormsModule } from "@angular/forms";
 import { AbstractPassengerService } from "../service/abstract.passenger.service";
 import { PassengerService } from "../service/passenger.service";
 import { PassengerCardComponent } from "./passenger-card/passenger-card.component";
+import { PassengerValidationErrorsComponent } from "./passenger-validation-errors/passenger-validation-errors.component";
 //import { AnonymousPassengerService } from "../service/anonymous.passenger.service";
 
 @NgModule({
   declarations: [
             PassengerSearchComponent,
-            PassengerCardComponent
+            PassengerCardComponent,
+            PassengerValidationErrorsComponent
         ],
   imports: [
             CommonModule,

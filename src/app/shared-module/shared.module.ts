@@ -4,13 +4,17 @@ import { CommonModule } from "@angular/common";
 import { StatusPipe } from "./pipes/status.pipe";
 import { StatusColorPipe } from "./pipes/status.color.pipe";
 import { StatusFilterPipe } from "./pipes/status.filter.pipe";
+import { PassengerNameDirective } from "./directives/passenger-name.directive";
+import { PublicPeopleDirective } from "./directives/public-people.directive";
 
 
 @NgModule({
   declarations: [
             StatusPipe,
             StatusColorPipe,
-            StatusFilterPipe
+            StatusFilterPipe,
+            PassengerNameDirective,
+            PublicPeopleDirective
         ],
   imports: [
             CommonModule
@@ -19,7 +23,9 @@ import { StatusFilterPipe } from "./pipes/status.filter.pipe";
   exports: [
             StatusPipe,
             StatusColorPipe,
-            StatusFilterPipe
+            StatusFilterPipe,
+            PassengerNameDirective,
+            PublicPeopleDirective
             ]
 })
 export class SharedModule { }

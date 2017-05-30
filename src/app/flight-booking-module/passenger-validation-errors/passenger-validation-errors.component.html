@@ -1,0 +1,3 @@
+<div *ngIf="f?.invalid && f?.dirty">...FormFehler <pre>... {{ f?.errors | json }}</pre>...</div>          
+<div *ngIf="f?.controls?.searchName?.invalid">...Error...</div>
+<div *ngIf="f?.controls['searchName']?.invalid && f?.controls['searchName']?.dirty">...Fehler <pre>{{ f?.controls['searchName']?.errors | json }}</pre>...</div>          
