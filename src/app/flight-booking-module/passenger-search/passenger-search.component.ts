@@ -16,6 +16,10 @@ export class PassengerSearchComponent{
     selectedPassenger:Passenger;
     postResult:string='';
     url = 'http://www.angular.at/api/passenger';
+    passengersSelected:any={
+        1:true,
+        3:true
+    }
 
     constructor(private passengerService:AbstractPassengerService) {}
 
@@ -33,7 +37,7 @@ export class PassengerSearchComponent{
             );
     }
 
-    select(p:Passenger){
+    edit(p:Passenger){
         this.selectedPassenger = p;
     }
 

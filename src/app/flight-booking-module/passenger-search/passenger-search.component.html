@@ -1,70 +1,65 @@
 <h1>Passenger Search</h1>
 
-<div class="card">
-
-    <div class="form-group">
-        <label>Name:</label>
-        <input [(ngModel)]="searchName" class="form-control">
+<div class="row">
+    <div class="card">
+        <div class="form-group">
+            <label>Name:</label>
+            <input [(ngModel)]="searchName" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <button 
+                class="btn btn-default"
+                (click)="search()" 
+                >Search</button>
+        </div>
     </div>
-    
-    <div class="form-group">
-        <button 
-            class="btn btn-default"
-            (click)="search()" 
-            >Search</button>
-    </div>
-
-
 </div>
 
-<div class="card">
-    <label>Results:</label>
-    <table class="table table-contensed">
-        <!--
-            [ngClass]="{ 'active': 'f === selectedFlight'  }" 
-        -->
-        <tr *ngFor="let p of passengers | statusFilter:'A'" [class.active]="p === selectedPassenger">
-            <td>{{p.id}}</td>
-            <td>{{p.name}}</td>
-            <td>{{p.firstName}}</td>
-            <td>{{p.bonusMiles}}</td>
-            <td>
-                <span [ngStyle]="{color: p.passengerStatus | statusColor }"> {{ p.passengerStatus | status }} </span>
-            </td>
-            <td><a (click)="select(p)">Select</a></td>
-        </tr>
-    </table>
-
+<div class="row">
+    <div *ngFor="let p of passengers" class="col col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <passenger-card [item]="p" [(selected)]="passengersSelected[p.id]" (editChange)="edit($event)"></passenger-card>
+    </div>
 </div>
 
-<div class="class" *ngIf="selectedPassenger !== undefined">
-    <pre>{{ selectedPassenger | json }}</pre>
+<div class="row">
+    <div class="card">
+        {{passengersSelected | json}}
+    </div>
 </div>
 
-<div class="card" *ngIf="selectedPassenger !== undefined">
+<div class="row">
+    <div class="card" *ngIf="selectedPassenger !== undefined">
+        <pre>{{ selectedPassenger | json }}</pre>
+    </div>
+</div>
 
-    <input type="hidden" [(ngModel)]="selectedPassenger.id" class="form-control">
-    <div class="form-group">
-        <label>Name:</label>
-        <input [(ngModel)]="selectedPassenger.name" class="form-control">
+<div class="row">
+    <div class="card" *ngIf="selectedPassenger !== undefined">
+
+        <input type="hidden" [(ngModel)]="selectedPassenger.id" class="form-control">
+        <div class="form-group">
+            <label>Name:</label>
+            <input [(ngModel)]="selectedPassenger.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>FirstName:</label>
+            <input [(ngModel)]="selectedPassenger.firstName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>BonusMiles:</label>
+            <input [(ngModel)]="selectedPassenger.bonusMiles" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>PassengerStatus:</label>
+            <input [(ngModel)]="selectedPassenger.passengerStatus" class="form-control">
+        </div>
+        <div class="form-group">
+            <button 
+                class="btn btn-default"
+                (click)="save()" 
+                [disabled]="selectedPassenger === undefined">Save</button>
+        </div>
+        <div>{{postResult}}</div>
     </div>
-    <div class="form-group">
-        <label>FirstName:</label>
-        <input [(ngModel)]="selectedPassenger.firstName" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>BonusMiles:</label>
-        <input [(ngModel)]="selectedPassenger.bonusMiles" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>PassengerStatus:</label>
-        <input [(ngModel)]="selectedPassenger.passengerStatus" class="form-control">
-    </div>
-    <div class="form-group">
-        <button 
-            class="btn btn-default"
-            (click)="save()" 
-            [disabled]="selectedPassenger === undefined">Save</button>
-    </div>
-    <div>{{postResult}}</div>
 </div>

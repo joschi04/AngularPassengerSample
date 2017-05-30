@@ -9,7 +9,7 @@ export class StatusColorPipe implements PipeTransform {
         case 'A' :
             return 'red';
         case 'B' :
-            return 'yellow';
+            return 'orange';
         case 'C' :
             return 'green';
         default:
