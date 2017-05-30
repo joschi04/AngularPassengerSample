@@ -23,12 +23,14 @@
         <!--
             [ngClass]="{ 'active': 'f === selectedFlight'  }" 
         -->
-        <tr *ngFor="let p of passengers" [class.active]="p === selectedPassenger">
+        <tr *ngFor="let p of passengers | statusFilter:'A'" [class.active]="p === selectedPassenger">
             <td>{{p.id}}</td>
             <td>{{p.name}}</td>
             <td>{{p.firstName}}</td>
             <td>{{p.bonusMiles}}</td>
-            <td>{{p.passengerStatus}}</td>
+            <td>
+                <span [ngStyle]="{color: p.passengerStatus | statusColor }"> {{ p.passengerStatus | status }} </span>
+            </td>
             <td><a (click)="select(p)">Select</a></td>
         </tr>
     </table>

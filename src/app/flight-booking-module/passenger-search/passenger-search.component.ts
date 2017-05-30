@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
 
-import { Passenger } from '../entity/passenger'
-import { AbstractPassengerService } from "../service/abstract.passenger.service";
-import { PassengerService } from "../service/passenger.service";
-import { AnonymousPassengerService } from "../service/anonymous.passenger.service";
 
-
+import { AbstractPassengerService } from "../../service/abstract.passenger.service";
+import { Passenger } from "../../entity/passenger";
 
 @Component({
     selector: 'passenger-search',
     templateUrl: './passenger-search.component.html',
     styleUrls: ['./passenger-search.component.css'],
-    providers: [{provide:AbstractPassengerService,useClass:PassengerService}]
+    //providers: [{provide:AbstractPassengerService,useClass:PassengerService}]
 })
 export class PassengerSearchComponent{
     searchName:string = '';
