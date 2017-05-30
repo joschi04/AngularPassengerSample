@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 
-@Pipe({ name: 'status' })
+@Pipe({ name: 'status', pure: true })
 export class StatusPipe implements PipeTransform {
   transform(passengerStatus: string) {
     switch (passengerStatus)
