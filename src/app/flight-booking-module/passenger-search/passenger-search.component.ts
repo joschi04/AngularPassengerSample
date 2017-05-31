@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 
 import { AbstractPassengerService } from "../../service/abstract.passenger.service";
 import { Passenger } from "../../entity/passenger";
+import { Subject } from "rxjs/Subject";
 
 @Component({
     selector: 'passenger-search',
@@ -20,6 +21,7 @@ export class PassengerSearchComponent{
         1:true,
         3:true
     }
+    afterSearch$ = new Subject<Passenger[]>();
 
     constructor(private passengerService:AbstractPassengerService) {}
 
@@ -30,8 +32,10 @@ export class PassengerSearchComponent{
             .subscribe(
                 (passengers: Passenger[]) => {
                     this.passengers = passengers;
+                    this.afterSearch$.next(this.passengers);
                 },
                 (errResponse) => {
+                    this.afterSearch$.error(errResponse);
                     console.error('Fehler beim Laden', errResponse);
                 }
             );

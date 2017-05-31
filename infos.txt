@@ -1,0 +1,14 @@
+- npm run lint / ng lint //Syleprüfung -> tslin.config (Regeldatei) Angular 2 Styleguide
+- es gibt ein Syleguide für Angular 2 npm-packages (Angular Package Format 4.0) (ebook Angular in der Praxis styer / Graps)
+- Plugin 
+	-TSLint 
+	-Snipits JohnPapa
+	-Angular Files
+- selector prefix -> definieren in der angualr-cli.json
+- ngx-Translage für i18n -> datefunctions moment.js
+- webpack Angular Guid auf Angular.io
+- test entweder async(function(){test}) oder (done:funtion) => {async testen; done();}
+- Observable.of um synchron Result zu liefern
+- main.ts environment.production
+- json server mocken
+- code coverage instanbul
