@@ -15,7 +15,6 @@ export class PassengerSearchComponent{
     searchName:string = '';
     passengers: Array<Passenger> = [];
     selectedPassenger:Passenger;
-    postResult:string='';
     url = 'http://www.angular.at/api/passenger';
     passengersSelected:any={
         1:true,
@@ -43,20 +42,8 @@ export class PassengerSearchComponent{
 
     edit(p:Passenger){
         this.selectedPassenger = p;
+
     }
 
-    save(){
-        this.passengerService
-            .savePassenger(this.selectedPassenger)
-            .subscribe(
-                (passenger: Passenger) => {
-                    this.selectedPassenger = passenger;
-                    this.postResult = 'OK';
-                },
-                (errResponse) => {
-                    console.error('Fehler beim Laden', errResponse);
-                    this.postResult = errResponse;
-                }
-            );
-    }
+    
 }

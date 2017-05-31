@@ -12,3 +12,5 @@
 - main.ts environment.production
 - json server mocken
 - code coverage instanbul
+- angular files 
+- redux zustand einer SPA sichern

@@ -7,16 +7,20 @@ import { PassengerService } from "./service/passenger.service";
 import { BASE_URL } from "app/app.tokens";
 import { FlightBookingModule } from "./flight-booking-module/flight.booking.module";
 import { HttpModule } from "@angular/http";
+import { HomeComponent } from './home/home.component';
+import { AppRouterModule } from "./app.routes";
 
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    HomeComponent
+],
   imports: [
     BrowserModule,
     HttpModule,
-    FlightBookingModule
+    FlightBookingModule,
+    AppRouterModule
   ],
   providers: [
         //{provide:AbstractPassengerService,useClass:PassengerService},

@@ -9,17 +9,24 @@ import { PassengerService } from "../service/passenger.service";
 import { PassengerCardComponent } from "./passenger-card/passenger-card.component";
 import { PassengerValidationErrorsComponent } from "./passenger-validation-errors/passenger-validation-errors.component";
 //import { AnonymousPassengerService } from "../service/anonymous.passenger.service";
+import { PassengerEditComponent } from './passenger-edit/passenger-edit.component';
+import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { FlightBookingRouterModule } from "app/flight-booking-module/flight.booking.routes";
 
 @NgModule({
   declarations: [
             PassengerSearchComponent,
             PassengerCardComponent,
-            PassengerValidationErrorsComponent
-        ],
+            PassengerValidationErrorsComponent,
+            PassengerSearchComponent,
+            PassengerEditComponent,
+            FlightSearchComponent
+],
   imports: [
             CommonModule,
             FormsModule,
-            SharedModule
+            SharedModule,
+            FlightBookingRouterModule
         ],
   providers: [{provide:AbstractPassengerService,useClass:PassengerService}],
   exports: [

@@ -16,6 +16,6 @@
     <p>
        <button class="btn btn-default" *ngIf="!selected" (click)="select()">Select</button>
        <button class="btn btn-default" *ngIf="selected" (click)="deselect()">Remove</button>   
-       <button class="btn btn-default" (click)="edit()">Edit</button>   
+       <button class="btn btn-default" (click)="edit()" [routerLink]="['/passenger-edit', item.id]">Edit</button>   
     </p>
 </div>
